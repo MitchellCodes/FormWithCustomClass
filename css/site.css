@@ -1,7 +1,46 @@
-form{
-    text-align: center;
+body{
+    background-color: darkgray;
 }
 
 h1, #validation-summary{
     text-align: center;
+}
+
+#top-centered{
+    max-width: 50%;
+    margin: auto;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+#title{
+    margin-right: 1em;
+    width: 40%;
+    text-align: center;
+}
+
+#price{
+    text-align: center;
+    width: 40%;
+}
+
+#top-centered > input[type="text"]{
+    padding: 1em;
+}
+
+#bottom-centered{
+    max-width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+#bottom-centered > input{
+    padding: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+select{
+    margin-bottom: .5em;
+    padding: .5em;
 }
