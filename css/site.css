@@ -7,25 +7,16 @@ h1, #validation-summary{
 }
 
 #top-centered{
-    max-width: 50%;
+    max-width: fit-content;
     margin: auto;
     padding-bottom: 1em;
     text-align: center;
 }
 
-#title{
-    margin-right: 1em;
-    width: 40%;
-    text-align: center;
-}
-
-#price{
-    text-align: center;
-    width: 40%;
-}
-
 #top-centered > input[type="text"]{
+    margin: .5em;
     padding: 1em;
+    text-align: center;
 }
 
 #bottom-centered{
@@ -41,6 +32,16 @@ h1, #validation-summary{
 }
 
 select{
+    margin-top: .5em;
     margin-bottom: .5em;
     padding: .5em;
+}
+
+input[type="button"]{
+    cursor: pointer;
+    border-radius: .5em;
+}
+
+input[type="button"]:hover{
+    background-color: rgb(247, 247, 247);
 }
