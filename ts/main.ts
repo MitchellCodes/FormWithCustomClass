@@ -20,8 +20,6 @@ window.onload = function(){
 }
 
 function addVideoGame(){
-    alert("test");
-
     if(isAllDataValid()){
         let game = getVideoGame();
         displayGame(game);
@@ -33,8 +31,29 @@ function isAllDataValid(){
     return true;
 }
 
-function displayGame(addedGame:VideoGame):void{
-    // TODO: DISPLAY VIDEO GAME BELOW FORM*****************************************
+function displayGame(game:VideoGame):void{
+    let displayDiv = document.getElementById("display");
+
+    // Create <h2> with game title
+    let gameHeading = document.createElement("h2");
+    gameHeading.innerText = game.title;
+
+    // Create <p> with game details
+    let gameInfo = document.createElement("p");
+    let gameMediumString = "";
+    if(game.isDigitalOnly){
+        gameMediumString = "This game is digital only.";
+    }
+    else{
+        gameMediumString = "Physical copies are available.";
+    }
+    gameInfo.innerText = `${game.title} has a rating of ${game.rating}. ` +
+        `It costs $${game.price.toFixed(2)}. ${gameMediumString}`;
+
+    // Add <h2> in <div id="display">
+    displayDiv.appendChild(gameHeading);
+    // Add <p> of game info
+    displayDiv.appendChild(gameInfo);
 }
 
 /**
@@ -45,7 +64,7 @@ function displayGame(addedGame:VideoGame):void{
 function getVideoGame():VideoGame{
     let game = new VideoGame();
 
-    // POPULATE WITH DATA FROM FORM
+    // populate with data from the form
     let inputTitle = <HTMLInputElement>document.getElementById("title");
     game.title = inputTitle.value;
 
@@ -55,7 +74,7 @@ function getVideoGame():VideoGame{
     let inputRating = <HTMLSelectElement>document.getElementById("rating");
     game.rating = inputRating.value;
 
-    let digitalOnly = <HTMLInputElement>document.getElementById("online");
+    let digitalOnly = <HTMLInputElement>document.getElementById("digital");
     game.isDigitalOnly = digitalOnly.checked; // true if checked, false if not
 
     return game;

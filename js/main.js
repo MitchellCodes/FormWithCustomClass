@@ -8,7 +8,6 @@ window.onload = function () {
     addBtn.onclick = addVideoGame;
 };
 function addVideoGame() {
-    alert("test");
     if (isAllDataValid()) {
         var game = getVideoGame();
         displayGame(game);
@@ -17,7 +16,22 @@ function addVideoGame() {
 function isAllDataValid() {
     return true;
 }
-function displayGame(addedGame) {
+function displayGame(game) {
+    var displayDiv = document.getElementById("display");
+    var gameHeading = document.createElement("h2");
+    gameHeading.innerText = game.title;
+    var gameInfo = document.createElement("p");
+    var gameMediumString = "";
+    if (game.isDigitalOnly) {
+        gameMediumString = "This game is digital only.";
+    }
+    else {
+        gameMediumString = "Physical copies are available.";
+    }
+    gameInfo.innerText = game.title + " has a rating of " + game.rating + ". " +
+        ("It costs $" + game.price.toFixed(2) + ". " + gameMediumString);
+    displayDiv.appendChild(gameHeading);
+    displayDiv.appendChild(gameInfo);
 }
 function getVideoGame() {
     var game = new VideoGame();
@@ -27,7 +41,7 @@ function getVideoGame() {
     game.price = parseFloat(inputPrice.value);
     var inputRating = document.getElementById("rating");
     game.rating = inputRating.value;
-    var digitalOnly = document.getElementById("online");
+    var digitalOnly = document.getElementById("digital");
     game.isDigitalOnly = digitalOnly.checked;
     return game;
 }
