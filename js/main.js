@@ -41,13 +41,20 @@ function isAllDataValid() {
     var rating = document.getElementById("rating").value;
     if (rating == "") {
         isValid = false;
-        addErrorMessage("You must choose a rating.");
+        addErrorMsgWithCustomClass("You must choose a rating.", "rating-error");
     }
     return isValid;
 }
 function addErrorMessage(errorMessage) {
     var errorSummary = document.getElementById("validation-summary");
     var errorItem = document.createElement("li");
+    errorItem.innerText = errorMessage;
+    errorSummary.appendChild(errorItem);
+}
+function addErrorMsgWithCustomClass(errorMessage, cssClass) {
+    var errorSummary = document.getElementById("validation-summary");
+    var errorItem = document.createElement("li");
+    errorItem.classList.add(cssClass);
     errorItem.innerText = errorMessage;
     errorSummary.appendChild(errorItem);
 }
