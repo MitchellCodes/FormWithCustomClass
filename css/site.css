@@ -40,8 +40,13 @@ select{
 input[type="button"]{
     cursor: pointer;
     border-radius: .5em;
+    border: 1px solid black;
 }
 
 input[type="button"]:hover{
     background-color: rgb(247, 247, 247);
+}
+
+#display{
+    text-align: center;
 }
